@@ -1,0 +1,18 @@
+AWSTemplateFormatVersion: 2010-09-09
+Transform:
+- AWS::Serverless-2016-10-31
+Resources:
+  TestNodeJsLambdaFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: lambda.handler
+      Runtime: nodejs6.10
+      Timeout : 30
+      MemorySize: 1024
+      Events:
+        GetEvent:
+          Type: Api
+          Properties:
+            Path: /test
+            Method: get
+

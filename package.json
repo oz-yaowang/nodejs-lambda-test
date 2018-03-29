@@ -1,0 +1,26 @@
+{
+    "name": "ar-16-b-8-lambda",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Aaron Wang <aaron.wang@hrx.ai>",
+    "license": "MIT",
+    "devDependencies": {
+        "del": "^3.0.0",
+        "gulp": "^3.9.1",
+        "gulp-eslint": "^4.0.2",
+        "gulp-install": "^1.1.0",
+        "gulp-istanbul": "^1.1.3",
+        "gulp-mocha": "^5.0.0",
+        "gulp-uglify-es": "^1.0.1",
+        "gulp-zip": "^4.1.0",
+        "lambda-tester": "2.8.1",
+        "run-sequence": "^2.2.1"
+    },
+    "dependencies": {
+        "aws-sdk": "^2.215.1"
+    }
+}

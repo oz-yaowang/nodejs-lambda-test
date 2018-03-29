@@ -1,0 +1,27 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      # Upgrade AWS CLI to the latest version
+      - pip install --upgrade awscli
+  pre_build:
+    commands:
+      - echo Test started on `date`
+      - npm install --global gulp
+      - npm install
+  build:
+    commands:
+      - echo Build started on `date`
+      - gulp
+      - mkdir result
+      - mv ./dist/lambda.zip ./result
+      - mv ./template.yml ./result
+      - cd ./result
+      - unzip lambda.zip
+      - rm -rf lambda.zip
+      - find ./node_modules/* -mtime +10950 -exec touch {} \;
+      - aws cloudformation package --template template.yml --s3-bucket jenkins-build-jar --output-template template-export.yml
+artifacts:
+  files:
+    - template-export.yml
