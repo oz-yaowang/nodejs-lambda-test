@@ -9,7 +9,7 @@ describe('test lambda function', function () {
         //     assert.equal(result, 'success');
         // });
 
-        lambda.handler({content: 'test'});
+        lambda.handler();
 
     });
 });

@@ -43,9 +43,9 @@ gulp.task('zip', () => {
 gulp.task('pre-test', function () {
     return gulp.src([LAMBDA_GLOBS_PATH])
     // Covering files
-    //     .pipe(istanbul({includeUntested:true}))
-        // Force `require` to return covered files
-        // .pipe(istanbul.hookRequire());
+    //     .pipe(istanbul({includeUntested: true}))
+    // Force `require` to return covered files
+        .pipe(istanbul.hookRequire());
 });
 
 gulp.task('test', function () {
@@ -78,6 +78,8 @@ gulp.task('style', function () {
 
 gulp.task('deploy', (callback) => {
     runSequence(['clean'], ['style'], ['pre-test'], ['test'], ['uglify', 'dependency'], ['zip'], callback);
+    // runSequence(['clean'], ['style'], ['pre-test'], ['test'], ['dependency'], ['zip'], callback);
+
 });
 
 gulp.task('default', ['deploy']);
