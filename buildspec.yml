@@ -21,7 +21,7 @@ phases:
       - unzip lambda.zip
       - rm -rf lambda.zip
       - find ./node_modules/* -mtime +10950 -exec touch {} \;
-      - aws cloudformation package --template template.yml --s3-bucket jenkins-build-jar --output-template template-export.yml
+      - aws cloudformation package --template template.yml --s3-bucket nodejs-build-jar --output-template template-export.yml
       - mv template-export.yml ../
 artifacts:
   files:
