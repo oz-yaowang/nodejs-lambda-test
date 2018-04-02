@@ -1,6 +1,6 @@
-let LambdaTester = require('lambda-tester');
+// let LambdaTester = require('lambda-tester');
 let lambda = require('../src/lambda').handler;
-let assert = require('assert');
+// let assert = require('assert');
 
 /* global describe:true it:true*/
 describe('test lambda function', function () {
