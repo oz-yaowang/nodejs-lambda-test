@@ -6,12 +6,12 @@ let assert = require('assert');
 describe('test lambda function', function () {
 
 
-    it('call Lambda.js callback', function () {
-        return LambdaTester(lambda).event({content: 'test'}).expectResult((result) => {
-            assert.equal(result, 'some success message');
-        });
-
-    });
+    // it('call Lambda.js callback', function () {
+    //     return LambdaTester(lambda).event({content: 'test'}).expectResult((result) => {
+    //         assert.equal(result, 'some success message');
+    //     });
+    //
+    // });
 
     it('call Lambda.js null callback branch', function () {
         lambda();
