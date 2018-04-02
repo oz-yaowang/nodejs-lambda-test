@@ -43,12 +43,12 @@ gulp.task('zip', () => {
 gulp.task('pre-test', function () {
     return gulp.src([LAMBDA_GLOBS_PATH])
     // Covering files
-    //     .pipe(istanbul({includeUntested: true}))
+        .pipe(istanbul({includeUntested: true}))
     // Force `require` to return covered files
         .pipe(istanbul.hookRequire());
 });
 
-gulp.task('test', function () {
+gulp.task('test',['pre-test'], function () {
     return gulp.src([TEST_FILE_PATH])
         .pipe(mocha({
             reporter: 'spec'
@@ -56,7 +56,7 @@ gulp.task('test', function () {
         // Creating the reports after tests ran
         .pipe(istanbul.writeReports({reporters: ['cobertura', 'html', 'text', 'text-summary']}))
         // Enforce a coverage of at least 90%
-        .pipe(istanbul.enforceThresholds({thresholds: {global: 50}}));
+        .pipe(istanbul.enforceThresholds({thresholds: {global: 80}}));
 });
 
 gulp.task('style', function () {
